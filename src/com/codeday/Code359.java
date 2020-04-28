@@ -28,7 +28,7 @@ public class Code359 {
               info=s.nextInt();
           }
           strength[i]=info;
-            System.out.println(strength[i]);
+          //System.out.println(strength[i]);
         }
         s.close();
         return strength;
