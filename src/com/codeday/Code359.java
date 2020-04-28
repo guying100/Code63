@@ -25,18 +25,27 @@ public class Code359 {
           int info=s.nextInt();
           if ((info<=0)||(info>=50)){
               System.out.println("越界，请重新输入！");
+              info=s.nextInt();
           }
           strength[i]=info;
+            System.out.println(strength[i]);
         }
+        s.close();
         return strength;
     }
     //判断是否为素数
     public static boolean isSu(int value){
         boolean is=true;
+        if (value==1){
+            return false;
+        }
         if(value==2){
             return true;
         }
-        for (int i = 2; i <10 ; i++) {
+        if (value%2==0){
+            return false;
+        }
+        for (int i = 3; i <value ; i+=2) {
             if (i!=value && value%i==0){//可以被除本身外的其他数整除
                 is=false;
             }
@@ -47,7 +56,6 @@ public class Code359 {
     public static void match(int[] strength){
         for (int i = 1; i <strength.length ; i++) {
             int value=(strength[0]-strength[i])*2+(strength[0]-strength[i])+41;
-            System.out.println(value);
             if (isSu(value)&&i==(strength.length-1)){//比赛三次且第三次的值为素数
                 System.out.println("WIN");
             }
